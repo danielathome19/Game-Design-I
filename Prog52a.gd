@@ -30,4 +30,3 @@ func _on_btn_calc_pressed():
 # int() - whole numbers +-
 # float() - numbers w/ decimal +-
 # str() - text
-
