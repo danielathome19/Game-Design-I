@@ -40,18 +40,3 @@ func _on_btn_calc_pressed():
 		
 	
 	pass # Replace with function body.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
