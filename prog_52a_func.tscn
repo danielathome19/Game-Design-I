@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp31oa8q0463l"]
+
+[ext_resource type="Script" path="res://prog_52aFunc.gd" id="1_ltv0o"]
+[ext_resource type="Theme" uid="uid://b3vw2x20nvw4b" path="res://largebtntext.tres" id="2_d1d57"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_atem3"]
+font_size = 32
+
+[node name="prog_52aFunc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ltv0o")
+
+[node name="txtLen" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 349.0
+offset_bottom = 115.0
+theme = ExtResource("2_d1d57")
+
+[node name="txtWid" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_right = 792.0
+offset_bottom = 115.0
+theme = ExtResource("2_d1d57")
+
+[node name="lblOut" type="Label" parent="."]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 806.0
+offset_bottom = 374.0
+label_settings = SubResource("LabelSettings_atem3")
+
+[node name="btnCalc" type="Button" parent="."]
+layout_mode = 0
+offset_top = 525.0
+offset_right = 349.0
+offset_bottom = 640.0
+theme = ExtResource("2_d1d57")
+text = "Calculate"
+
+[node name="btnClear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 525.0
+offset_right = 730.0
+offset_bottom = 640.0
+theme = ExtResource("2_d1d57")
+text = "Clear"
+
+[connection signal="pressed" from="btnCalc" to="." method="_on_btn_calc_pressed"]
