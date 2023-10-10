@@ -6,7 +6,6 @@ func _ready():
 	$world/CollisionPolygon2D/Polygon2D.polygon = $world/CollisionPolygon2D.polygon
 
 func _on_interact_mouse_entered():
-	print("Hovered")
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$interact.queue_free()  # Delete from world
 
