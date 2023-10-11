@@ -50,6 +50,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ele60")
 
 [node name="draggable" type="RigidBody2D" parent="."]
+position = Vector2(181, 170)
 freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="draggable"]
@@ -65,6 +66,9 @@ offset_top = -30.0
 offset_right = 30.0
 offset_bottom = 30.0
 focus_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [connection signal="mouse_entered" from="interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="button_down" from="draggable/Button" to="." method="_on_button_button_down"]
