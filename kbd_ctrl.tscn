@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxy0vdbes7555"]
+[gd_scene load_steps=8 format=3 uid="uid://bxy0vdbes7555"]
 
 [ext_resource type="Script" path="res://kbd_ctrl.gd" id="1_wl1xs"]
 [ext_resource type="PackedScene" uid="uid://t4lj73msrath" path="res://kbdplayer.tscn" id="2_pfntc"]
+[ext_resource type="PackedScene" uid="uid://dvnohxbnomuwf" path="res://kbdenemy.tscn" id="3_nokyo"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3mgex"]
 b = Vector2(251, 0)
@@ -32,7 +33,7 @@ texture = SubResource("PlaceholderTexture2D_l20lp")
 [node name="world" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world"]
-polygon = PackedVector2Array(-47, 44, -29, 186, 1, 352, -19, 504, 95, 482, 115, 574, 197, 566, 217, 490, 317, 492, 325, 556, 461, 566, 479, 440, 559, 400, 671, 422, 761, 362, 811, 462, 877, 568, 947, 548, 1023, 482, 1034, 415, 1184, 325, 1311, 402, 1361, 446, 1361, 546, 1451, 538, 1455, 356, 1541, 344, 1601, 410, 1631, 522, 1745, 472, 1763, 348, 1833, 246, 1861, 236, 1909, 308, 1921, 400, 1903, 526, 1881, 662, 1703, 874, 1439, 934, 1189, 856, 917, 878, 563, 884, 197, 860, -143, 830, -277, 730, -231, 420, -227, 426, -193, 214, -125, 70)
+polygon = PackedVector2Array(-47, 44, -29, 186, 1, 352, -19, 504, 95, 482, 115, 574, 197, 566, 217, 490, 317, 492, 325, 556, 461, 566, 479, 440, 559, 400, 671, 422, 761, 362, 811, 462, 862, 535, 947, 548, 1040, 526, 1108, 482, 1184, 325, 1311, 402, 1361, 446, 1361, 546, 1451, 538, 1455, 356, 1541, 344, 1601, 410, 1631, 522, 1745, 472, 1763, 348, 1833, 246, 1861, 236, 1909, 308, 1921, 400, 1903, 526, 1881, 662, 1703, 874, 1439, 934, 1189, 856, 917, 878, 563, 884, 197, 860, -143, 830, -277, 730, -231, 420, -227, 426, -193, 214, -125, 70)
 
 [node name="Polygon2D" type="Polygon2D" parent="world/CollisionPolygon2D"]
 
@@ -68,7 +69,8 @@ offset_bottom = 30.0
 focus_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="kbdenemy" parent="." instance=ExtResource("3_nokyo")]
+position = Vector2(954, 518)
 
 [connection signal="mouse_entered" from="interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="button_down" from="draggable/Button" to="." method="_on_button_button_down"]
