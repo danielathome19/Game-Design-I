@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxy0vdbes7555"]
+[gd_scene load_steps=7 format=3 uid="uid://bxy0vdbes7555"]
 
 [ext_resource type="Script" path="res://kbd_ctrl.gd" id="1_wl1xs"]
 [ext_resource type="PackedScene" uid="uid://t4lj73msrath" path="res://kbdplayer.tscn" id="2_pfntc"]
+[ext_resource type="PackedScene" uid="uid://dcobtgycdxwe3" path="res://startplatform.tscn" id="3_im302"]
 [ext_resource type="PackedScene" uid="uid://dvnohxbnomuwf" path="res://kbdenemy.tscn" id="3_nokyo"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_3mgex"]
-b = Vector2(251, 0)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l20lp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5k5al"]
 
@@ -19,16 +15,7 @@ script = ExtResource("1_wl1xs")
 
 [node name="kbdplayer" parent="." instance=ExtResource("2_pfntc")]
 
-[node name="startplatform" type="StaticBody2D" parent="."]
-position = Vector2(4, 91)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="startplatform"]
-shape = SubResource("SegmentShape2D_3mgex")
-
-[node name="Sprite2D" type="Sprite2D" parent="startplatform"]
-position = Vector2(125.25, 0)
-scale = Vector2(251.5, 1)
-texture = SubResource("PlaceholderTexture2D_l20lp")
+[node name="startplatform" parent="." instance=ExtResource("3_im302")]
 
 [node name="world" type="StaticBody2D" parent="."]
 
