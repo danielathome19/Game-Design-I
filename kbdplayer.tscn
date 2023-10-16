@@ -1,22 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://t4lj73msrath"]
 
 [ext_resource type="Script" path="res://kbdplayer.gd" id="1_dxppr"]
-[ext_resource type="Texture2D" uid="uid://xbu6tk6uq2ud" path="res://icon.svg" id="2_741tm"]
+[ext_resource type="Texture2D" uid="uid://c3noqgvpnq76v" path="res://assets/characters.png" id="2_2aift"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_va5md"]
 radius = 22.0
-height = 76.0
+height = 68.0
 
 [node name="kbdplayer" type="CharacterBody2D"]
 position = Vector2(127, 47)
 script = ExtResource("1_dxppr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.5, 0)
-scale = Vector2(0.367188, 0.59375)
-texture = ExtResource("2_741tm")
+position = Vector2(3.8147e-06, -8)
+scale = Vector2(2.5, 2.9375)
+texture = ExtResource("2_2aift")
+hframes = 23
+vframes = 4
+frame = 46
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_va5md")
 
 [node name="Camera2D" type="Camera2D" parent="."]
