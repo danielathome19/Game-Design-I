@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxy0vdbes7555"]
+[gd_scene load_steps=8 format=3 uid="uid://bxy0vdbes7555"]
 
 [ext_resource type="Script" path="res://kbd_ctrl.gd" id="1_wl1xs"]
 [ext_resource type="PackedScene" uid="uid://t4lj73msrath" path="res://kbdplayer.tscn" id="2_pfntc"]
 [ext_resource type="PackedScene" uid="uid://dcobtgycdxwe3" path="res://startplatform.tscn" id="3_im302"]
 [ext_resource type="PackedScene" uid="uid://dvnohxbnomuwf" path="res://kbdenemy.tscn" id="3_nokyo"]
+[ext_resource type="PackedScene" uid="uid://c57fmtfq4dlds" path="res://kbdexit.tscn" id="5_w0cor"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5k5al"]
 
@@ -58,6 +59,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="kbdenemy" parent="." instance=ExtResource("3_nokyo")]
 position = Vector2(954, 518)
+
+[node name="kbdexit" parent="." instance=ExtResource("5_w0cor")]
+next_level = "kbd_world_2"
 
 [connection signal="mouse_entered" from="interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="button_down" from="draggable/Button" to="." method="_on_button_button_down"]

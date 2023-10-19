@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c57fmtfq4dlds"]
+[gd_scene load_steps=4 format=3 uid="uid://c57fmtfq4dlds"]
+
+[ext_resource type="Script" path="res://kbdexit.gd" id="1_4er8u"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tq36y"]
 
@@ -6,6 +8,7 @@
 size = Vector2(14, 42)
 
 [node name="kbdexit" type="Area2D"]
+script = ExtResource("1_4er8u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(14.5, 42.5)
@@ -13,3 +16,5 @@ texture = SubResource("PlaceholderTexture2D_tq36y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_to14y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
