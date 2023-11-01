@@ -5,10 +5,6 @@ func _ready():
 	$Panel/GravSlide.value = $phys_ball.gravity_scale
 
 
-func _process(delta):
-	pass
-
-
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		var nball = preload("res://phys_ball.tscn").instantiate()
@@ -27,6 +23,7 @@ func _on_button_pressed():
 		if child is RigidBody2D:
 			child.apply_central_impulse(Vector2.RIGHT * 500)  # Vector2(1,0)
 
+
 func _on_button_2_pressed():
 	var v_inertia = float($Panel/txtInertia.text)
 	var v_x = float($Panel/txtVx.text)
@@ -36,6 +33,3 @@ func _on_button_2_pressed():
 		if child is RigidBody2D:
 			child.inertia = v_inertia
 			child.linear_velocity = velocity
-
-
-
