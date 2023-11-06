@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c855fonb7c3x6"]
+
+[ext_resource type="Script" path="res://my_gui.gd" id="1_xe4ge"]
+[ext_resource type="Theme" uid="uid://b3vw2x20nvw4b" path="res://largebtntext.tres" id="2_rsf26"]
+
+[node name="my_gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_xe4ge")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 179.0
+offset_right = 800.0
+offset_bottom = 278.0
+theme = ExtResource("2_rsf26")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 312.0
+offset_top = 334.0
+offset_right = 800.0
+offset_bottom = 433.0
+theme = ExtResource("2_rsf26")
+text = "Quit"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
