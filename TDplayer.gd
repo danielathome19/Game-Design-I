@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0  # 80.0
+const SPEED = 100.0  # 80.0
 # const JUMP_VELOCITY = -400.0
 var inertia = Vector2()
 var look_direction = Vector2.DOWN  # (0, 1)
@@ -18,11 +18,10 @@ func _physics_process(delta):
 	var direction = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")
-	)
+	).normalized()  # Scale to 1 to prevent speed boost
+	update_animation(direction)
 	if direction.length() > 0:
 		look_direction = direction
-		# Scale to 1 to prevent speed boost from diagonals
-		direction = direction.normalized()
 		velocity = direction * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2(), SPEED)
@@ -34,3 +33,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		menu_instance.show()
 		get_tree().paused = true
+
+
+func update_animation(direction):
+	var a_name = "idle_down"  # Default
+	if direction.length() > 0:
+		look_direction = direction
+		a_name = "walk_"
+		if direction.x != 0:
+			a_name += "side"
+			$AnimatedSprite2D.flip_h = direction.x < 0
+		elif direction.y < 0:
+			a_name += "up"
+		elif direction.y > 0:
+			a_name += "down"
+	else:
+		pass
+	
+	if $AnimatedSprite2D.animation != a_name:
+		$AnimatedSprite2D.animation = a_name

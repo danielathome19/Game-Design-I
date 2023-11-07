@@ -1,5 +1,8 @@
 extends Control
 
+# TODO: set panel to anchor, full rect
+# then, move buttons into Vbox and anchor to center
+
 func _ready():
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
