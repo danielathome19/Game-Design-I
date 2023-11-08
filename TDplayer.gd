@@ -47,8 +47,21 @@ func update_animation(direction):
 			a_name += "up"
 		elif direction.y > 0:
 			a_name += "down"
+		$AnimatedSprite2D.play()
 	else:
-		pass
+		if look_direction.x != 0:
+			a_name = "idle_side"
+			$AnimatedSprite2D.flip_h = look_direction.x < 0
+		elif look_direction.y < 0:
+			a_name = "idle_up"
+		elif look_direction.y > 0:
+			a_name = "idle_down"
 	
 	if $AnimatedSprite2D.animation != a_name:
 		$AnimatedSprite2D.animation = a_name
+
+
+
+
+
+
