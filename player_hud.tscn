@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qq1nnbajubm"]
+
+[ext_resource type="Script" path="res://PlayerHUD.gd" id="1_5lx6a"]
+[ext_resource type="Texture2D" uid="uid://dtnqtho13efkg" path="res://assets/objects.png" id="2_3ne2h"]
+
+[node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource("1_5lx6a")
+
+[node name="PlayerHealth" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 515.0
+offset_bottom = 128.0
+
+[node name="Hearts" type="Sprite2D" parent="PlayerHealth"]
+position = Vector2(32, 32)
+scale = Vector2(3.4375, 3.4375)
+texture = ExtResource("2_3ne2h")
+hframes = 33
+vframes = 20
+frame = 8
