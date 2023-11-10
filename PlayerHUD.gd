@@ -28,6 +28,7 @@ func _ready():
 
 
 func _process(delta):
+	$Money/Coins.text = "%03d" % player.data.money
 	var p_health = player.data.health
 	var full_hearts = floor(p_health / 20)
 	var remainder = int(p_health) % 20
