@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_o35cw"]
 font_size = 32
 
-[node name="PlayerHUD" type="CanvasLayer"]
+[node name="PlayerHUD" type="CanvasLayer" groups=["HUD"]]
 script = ExtResource("1_5lx6a")
 
 [node name="PlayerHealth" type="Control" parent="."]
