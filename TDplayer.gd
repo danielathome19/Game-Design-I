@@ -9,6 +9,7 @@ const MAX_OBTAINABLE_HEALTH = 400.0
 	"max_health": 60.0,  # 20hp per heart; 5 per fraction
 	"health": 60.0,      # Min 60 Max 400
 	"money": 0,
+	"secondaries": [],
 }
 
 var inertia = Vector2()
@@ -18,6 +19,13 @@ var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+
+func pickup_money(value):
+	data.money += value
+
+func pickup_health(value):
+	data.health += value
+	data.health = clamp(data.health, 0, data.max_health)
 
 func _ready():
 	p_HUD.show()

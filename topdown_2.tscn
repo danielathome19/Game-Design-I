@@ -5,7 +5,7 @@
 
 [node name="topdown2" type="Node2D"]
 
-[node name="PlayerHUD" parent="." groups=["HUD"] instance=ExtResource("1_b83lh")]
+[node name="PlayerHUD" parent="." instance=ExtResource("1_b83lh")]
 visible = false
 
 [node name="TDplayer" parent="." instance=ExtResource("2_juy6h")]
