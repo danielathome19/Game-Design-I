@@ -64,8 +64,8 @@ func charged_attack():
 		await get_tree().create_timer(0.03).timeout
 	
 	animation_lock = 0.2
-	data.state = STATES.IDLE
 	await $AnimatedSprite2D.animation_finished
+	data.state = STATES.IDLE
 	pass
 
 func pickup_money(value):
