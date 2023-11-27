@@ -138,9 +138,3 @@ func update_animation(direction):
 		
 		if $AnimatedSprite2D.animation != a_name:
 			$AnimatedSprite2D.animation = a_name
-
-
-
-
-
-
