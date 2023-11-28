@@ -83,6 +83,7 @@ func _ready():
 
 func _physics_process(delta):
 	animation_lock = max(animation_lock-delta, 0.0)
+	damage_lock = max(damage_lock-delta, 0.0)
 	
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		# TODO: damage and charging
@@ -107,6 +108,16 @@ func _physics_process(delta):
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
+			charge_start_time = Time.get_time_dict_from_system().second
+			data.state = STATES.CHARGING
+		
+		if Input.is_action_just_released("ui_accept"):
+			var ctime = Time.get_time_dict_from_system().second
+			var charge_duration = ctime - charge_start_time
+			if charge_duration >= charge_time and data.state == STATES.CHARGING:
+				charged_attack()
+			else:
+				data.state = STATES.IDLE
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		menu_instance.show()
