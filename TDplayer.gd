@@ -81,6 +81,9 @@ func _ready():
 	get_tree().get_root().add_child.call_deferred(menu_instance)
 	menu_instance.hide()
 
+func take_damage(dmg):
+	pass
+
 func _physics_process(delta):
 	animation_lock = max(animation_lock-delta, 0.0)
 	damage_lock = max(damage_lock-delta, 0.0)

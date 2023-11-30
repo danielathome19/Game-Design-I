@@ -53,6 +53,9 @@ func turn_toward_player_location(location: Vector2):
 			closest_state = STATES.values()[i]
 	AI_STATE = closest_state
 
+func take_damage(dmg, attacker=null):
+	pass
+
 func _physics_process(delta):
 	animation_lock = max(animation_lock-delta, 0.0)
 	damage_lock = max(damage_lock-delta, 0.0)
@@ -83,6 +86,24 @@ func _physics_process(delta):
 				   (raycastL.is_colliding() and raycastL.get_collider() == player) or \
 				   (raycastR.is_colliding() and raycastR.get_collider() == player):
 					turn_toward_player_location(player.global_position)
+		
+		ai_timer = clamp(ai_timer-delta, 0.0, ai_timer_max)
+		if ai_timer == 0.0:
+			if AI_STATE == STATES.IDLE:
+				var rnd_mov = randi() % 4
+				AI_STATE = STATES.values()[rnd_mov+1]
+			else:
+				AI_STATE = STATES.IDLE
+			ai_timer = ai_timer_max
+		
+		var direction = state_directions[int(AI_STATE)]
+		velocity = direction * SPEED
+		
+		# TODO: walk animation stuff
+		
+		velocity += inertia
+		move_and_slide()
+		inertia = inertia.move_toward(Vector2(), delta * 1000.0)
 	pass
 
 
