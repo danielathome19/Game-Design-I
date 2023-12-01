@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crhsvti6a6w87"]
+[gd_scene load_steps=7 format=3 uid="uid://crhsvti6a6w87"]
 
 [ext_resource type="Script" path="res://tdenemy.gd" id="1_i2o0k"]
 [ext_resource type="Texture2D" uid="uid://2h28gnaxob7k" path="res://assets/log.png" id="2_0cdbb"]
@@ -9,6 +9,41 @@ size = Vector2(14.5, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7j64"]
 size = Vector2(20, 22)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn4qx"]
+atlas = ExtResource("2_0cdbb")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmimh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn4qx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"e_walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"e_walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"e_walk_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"e_walk_up",
+"speed": 5.0
+}]
+
 [node name="TDenemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_i2o0k")
 
@@ -17,6 +52,7 @@ position = Vector2(0.25, 1)
 shape = SubResource("RectangleShape2D_4vy1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_0cdbb")
 hframes = 6
 vframes = 4
@@ -37,3 +73,6 @@ target_position = Vector2(-50, 0)
 
 [node name="RayCast2DL" type="RayCast2D" parent="."]
 target_position = Vector2(-48, 24)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pmimh")
