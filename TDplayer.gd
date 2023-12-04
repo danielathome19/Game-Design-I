@@ -30,6 +30,8 @@ var menu_instance = null
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
 @onready var aud_player = $AudioStreamPlayer2D
 # Add and preload sounds for attack, death, hurt, coin, miniheart, charge_attack
+# aud_player.stream = whatever_sound
+# aud_player.play()
 
 func get_direction_name():
 	return ["right", "down", "left", "up"][
