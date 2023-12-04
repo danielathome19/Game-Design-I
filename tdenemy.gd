@@ -23,6 +23,19 @@ var state_directions = [
 	Vector2.ZERO
 ]
 
+var state_animations = [
+	"",
+	"e_walk_up",
+	"e_walk_down",
+	"e_walk_left",
+	"e_walk_right",
+	"e_walk_left",
+	"e_walk_right",
+	"e_walk_left",
+	"e_walk_right",
+	""
+]
+
 var inertia = Vector2()
 var ai_timer_max = 0.5
 var ai_timer = ai_timer_max - randi() % 5
@@ -37,6 +50,34 @@ signal recovered
 @onready var raycastR = $RayCast2DR
 @onready var raycastM = $RayCast2DM
 @onready var raycastL = $RayCast2DL
+
+@onready var anim_player = $AnimatedSprite2D
+
+var drops = ["drop_coin", "drop_heart"]
+var coin_scene = preload("res://entities/coin.tscn")
+var heart_scene = preload("res://entities/mini_heart.tscn")
+
+func vec2_offset():
+	return Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
+
+func drop_scene(item_scene):
+	item_scene.global_position = self.global_position + vec2_offset()
+	get_tree().current_scene.add_child(item_scene)
+
+func drop_heart():
+	var heart = heart_scene.instantiate()
+	drop_scene(heart)
+
+func drop_coin():
+	var coin = coin_scene.instantiate()
+	coin.value = money_value
+	drop_scene(coin)
+
+func drop_item():
+	var num_drops = randi() % 3 + 1
+	for i in range(num_drops):
+		var rnd_drop = drops[randi() % drops.size()]
+		call_deferred(rnd_drop)
 
 func turn_toward_player_location(location: Vector2):
 	# Set the satte to move toward the player
@@ -63,6 +104,7 @@ func take_damage(dmg, attacker=null):
 		# TODO: damage intensity & shader
 		if HEALTH <= 0:
 			# TODO: drop item and play sound
+			drop_item()
 			queue_free()
 		else:
 			if attacker != null:
@@ -115,7 +157,12 @@ func _physics_process(delta):
 		var direction = state_directions[int(AI_STATE)]
 		velocity = direction * SPEED
 		
-		# TODO: walk animation stuff
+		var animation = state_animations[int(AI_STATE)]
+		if animation and not anim_player.is_playing():
+			anim_player.play(animation)
+		
+		if AI_STATE == STATES.IDLE and anim_player.is_playing():
+			anim_player.stop()
 		
 		velocity += inertia
 		move_and_slide()

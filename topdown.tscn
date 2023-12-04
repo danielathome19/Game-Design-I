@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhmuqrxvmtid0" path="res://change_lvl.tscn" id="4_qqb30"]
 [ext_resource type="PackedScene" uid="uid://dg2huub1xoqaa" path="res://entities/coin.tscn" id="5_flq0w"]
 [ext_resource type="PackedScene" uid="uid://brpiwm75r0tjs" path="res://entities/mini_heart.tscn" id="6_h7o2j"]
-[ext_resource type="PackedScene" uid="uid://crhsvti6a6w87" path="res://tdenemy.tscn" id="7_tmt14"]
+[ext_resource type="PackedScene" uid="uid://crhsvti6a6w87" path="res://entities/tdenemy.tscn" id="7_tmt14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g82a8"]
 texture = ExtResource("3_d3o4y")
