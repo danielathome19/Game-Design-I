@@ -188,4 +188,6 @@ target_position = Vector2(-48, 24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pmimh")
-frame_progress = 0.983996
+frame_progress = 0.55734
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
