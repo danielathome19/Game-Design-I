@@ -26,6 +26,7 @@ var charge_start_time = 0.0
 var slash_scene = preload("res://entities/attacks/slash.tscn")
 var menu_scene = preload("res://my_gui.tscn")
 var attack_sound = preload("res://assets/sounds/slash.wav")
+var damage_shader = preload("res://assets/shaders/take_damage.tres")
 var menu_instance = null
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
@@ -98,6 +99,8 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		# TODO: damage shader
+		$AnimatedSprite2D.material = damage_shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health <= 0:
 			data.state = STATES.DEAD
 			# TODO: play death animation & sound
@@ -114,7 +117,9 @@ func _physics_process(delta):
 	damage_lock = max(damage_lock-delta, 0.0)
 	
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
-		# TODO: damage and charging
+		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
+			$AnimatedSprite2D.material = null
+		
 		if data.state != STATES.CHARGING:
 			data.state = STATES.IDLE
 		

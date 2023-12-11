@@ -55,9 +55,11 @@ signal recovered
 @onready var aud_player = $AudioStreamPlayer2D
 
 var drops = ["drop_coin", "drop_heart"]
+
 var coin_scene = preload("res://entities/coin.tscn")
 var heart_scene = preload("res://entities/mini_heart.tscn")
 var death_sound = preload("res://assets/sounds/enemydeath.wav")
+var damage_shader = preload("res://assets/shaders/take_damage.tres")
 
 func vec2_offset():
 	return Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
@@ -103,7 +105,9 @@ func take_damage(dmg, attacker=null):
 		HEALTH -= dmg
 		damage_lock = 0.2
 		animation_lock = 0.2
-		# TODO: damage intensity & shader
+		var dmg_intensity = clamp(1.0-((HEALTH+0.01)/MAX_HEALTH), 0.1, 0.8)
+		$AnimatedSprite2D.material = damage_shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", dmg_intensity)
 		if HEALTH <= 0:
 			drop_item()
 			aud_player.stream = death_sound
@@ -131,6 +135,7 @@ func _physics_process(delta):
 	
 	if animation_lock == 0.0:
 		if AI_STATE == STATES.DAMAGED:
+			$AnimatedSprite2D.material = null
 			AI_STATE = STATES.IDLE
 			recovered.emit()
 		
