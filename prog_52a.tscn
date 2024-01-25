@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://bioqjrq5wx6nm"]
+
+[ext_resource type="Script" path="res://Prog52a.gd" id="1_q1ox4"]
+[ext_resource type="Theme" uid="uid://bc72q6gee73fi" path="res://big_btn_text.tres" id="2_lc5ct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pajxt"]
+font_size = 35
+
+[node name="Prog52a" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q1ox4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 40.0
+offset_right = 325.0
+offset_bottom = 117.0
+text = "Length:"
+label_settings = SubResource("LabelSettings_pajxt")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 130.0
+offset_right = 318.0
+offset_bottom = 207.0
+text = "Width:
+"
+label_settings = SubResource("LabelSettings_pajxt")
+
+[node name="lblArea" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 238.0
+offset_right = 805.0
+offset_bottom = 315.0
+text = "Area:"
+label_settings = SubResource("LabelSettings_pajxt")
+
+[node name="lblPerim" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 346.0
+offset_right = 800.0
+offset_bottom = 423.0
+text = "Perimeter:"
+label_settings = SubResource("LabelSettings_pajxt")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 26.0
+offset_right = 771.0
+offset_bottom = 108.0
+theme = ExtResource("2_lc5ct")
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 125.0
+offset_right = 773.0
+offset_bottom = 207.0
+theme = ExtResource("2_lc5ct")
+
+[node name="btnCalc" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 510.0
+offset_right = 309.0
+offset_bottom = 638.0
+theme = ExtResource("2_lc5ct")
+text = "Calculate"
+
+[node name="btnClear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 516.0
+offset_right = 730.0
+offset_bottom = 644.0
+theme = ExtResource("2_lc5ct")
+text = "Clear"
+
+[node name="btnExit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 515.0
+offset_right = 1147.0
+offset_bottom = 643.0
+theme = ExtResource("2_lc5ct")
+text = "Exit"
+
+[connection signal="pressed" from="btnCalc" to="." method="_on_btn_calc_pressed"]
+[connection signal="pressed" from="btnClear" to="." method="_on_btn_clear_pressed"]
+[connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
