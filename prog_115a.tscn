@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drdvf1v8ws0qp"]
 
-[ext_resource type="Script" path="res://prog_115a.gd" id="1_bixt4"]
+[ext_resource type="Script" path="res://Prog_115a.gd" id="1_3rdcm"]
 [ext_resource type="Theme" uid="uid://bc72q6gee73fi" path="res://big_btn_text.tres" id="1_e2e7i"]
 
 [node name="Prog115a" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bixt4")
+script = ExtResource("1_3rdcm")
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
