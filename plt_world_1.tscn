@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx67whb0pqmg7"]
+[gd_scene load_steps=12 format=3 uid="uid://dx67whb0pqmg7"]
 
 [ext_resource type="Script" path="res://plt_world_1.gd" id="1_hdqss"]
 [ext_resource type="Texture2D" uid="uid://n6o2peencv74" path="res://icon.svg" id="2_38ddt"]
 [ext_resource type="Script" path="res://plt_player.gd" id="2_mrf4b"]
+[ext_resource type="Script" path="res://plt_enemy.gd" id="4_kdgb2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_m1gfu"]
 a = Vector2(12, -19)
@@ -18,6 +19,12 @@ height = 48.0
 size = Vector2(98, 102)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qgo46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_expyp"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhnow"]
+size = Vector2(16, 16)
 
 [node name="plt_world1" type="Node2D"]
 script = ExtResource("1_hdqss")
@@ -68,4 +75,46 @@ shape = SubResource("RectangleShape2D_hpiul")
 scale = Vector2(96, 100)
 texture = SubResource("PlaceholderTexture2D_qgo46")
 
+[node name="draggable" type="RigidBody2D" parent="."]
+position = Vector2(609, 211)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="draggable"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_expyp")
+
+[node name="ColorRect" type="ColorRect" parent="draggable"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.247059, 0.109804, 0.690196, 1)
+
+[node name="Button" type="Button" parent="draggable/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 45.0
+offset_bottom = 45.0
+focus_mode = 0
+
+[node name="plt_enemy" type="RigidBody2D" parent="."]
+position = Vector2(1795, 527)
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("4_kdgb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="plt_enemy"]
+modulate = Color(0.411765, 0.0862745, 0.0862745, 1)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_38ddt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plt_enemy"]
+shape = SubResource("RectangleShape2D_xhnow")
+
+[node name="Timer" type="Timer" parent="plt_enemy"]
+
 [connection signal="mouse_entered" from="interact" to="." method="_on_interact_mouse_entered"]
+[connection signal="button_down" from="draggable/ColorRect/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="draggable/ColorRect/Button" to="." method="_on_button_button_up"]
+[connection signal="body_entered" from="plt_enemy" to="plt_enemy" method="_on_body_entered"]
+[connection signal="timeout" from="plt_enemy/Timer" to="plt_enemy" method="_on_timer_timeout"]
