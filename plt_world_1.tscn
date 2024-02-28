@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx67whb0pqmg7"]
+[gd_scene load_steps=10 format=3 uid="uid://dx67whb0pqmg7"]
 
 [ext_resource type="Script" path="res://plt_world_1.gd" id="1_hdqss"]
 [ext_resource type="PackedScene" uid="uid://2rv6f463igwe" path="res://plt_player.tscn" id="2_a7j2x"]
 [ext_resource type="PackedScene" uid="uid://gbdf6wws7skf" path="res://plt_enemy.tscn" id="3_lop24"]
+[ext_resource type="PackedScene" uid="uid://cubuw042yqgix" path="res://change_lvl.tscn" id="4_obvdy"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_m1gfu"]
 a = Vector2(12, -19)
@@ -84,6 +85,10 @@ position = Vector2(1795, 512)
 
 [node name="plt_enemy3" parent="." instance=ExtResource("3_lop24")]
 position = Vector2(2948, 512)
+
+[node name="change_lvl" parent="." instance=ExtResource("4_obvdy")]
+position = Vector2(3056, 478)
+next_level = "plt_world_2"
 
 [connection signal="mouse_entered" from="interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="button_down" from="draggable/ColorRect/Button" to="." method="_on_button_button_down"]

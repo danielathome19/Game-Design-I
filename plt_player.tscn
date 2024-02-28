@@ -82,7 +82,7 @@ animations = [{
 radius = 17.0
 height = 48.0
 
-[node name="plt_player" type="CharacterBody2D"]
+[node name="plt_player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_o4e6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
