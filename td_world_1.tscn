@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwyr7c7bhkxn1"]
+[gd_scene load_steps=6 format=3 uid="uid://cwyr7c7bhkxn1"]
 
 [ext_resource type="Texture2D" uid="uid://c5jqresysebsp" path="res://assets/sprites/zelda_like/Overworld.png" id="1_ev0i1"]
 [ext_resource type="PackedScene" uid="uid://ddko3668jymj3" path="res://td_player.tscn" id="2_o6buh"]
+[ext_resource type="PackedScene" uid="uid://cavgr5p8pxeyb" path="res://player_hud.tscn" id="3_i0ubw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_it00y"]
 texture = ExtResource("1_ev0i1")
@@ -3193,3 +3194,6 @@ layer_1/tile_data = PackedInt32Array(-327679, 1966080, 0, -262143, 1966080, 1, 3
 
 [node name="td_player" parent="." instance=ExtResource("2_o6buh")]
 position = Vector2(-126, 5)
+
+[node name="PlayerHUD" parent="." instance=ExtResource("3_i0ubw")]
+visible = false
