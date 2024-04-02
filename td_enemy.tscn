@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgawmsrxj0cy1"]
+[gd_scene load_steps=23 format=3 uid="uid://cgawmsrxj0cy1"]
 
 [ext_resource type="Texture2D" uid="uid://4353pi6psbm8" path="res://assets/sprites/zelda_like/log.png" id="1_4p1i7"]
+[ext_resource type="Script" path="res://td_enemy.gd" id="1_5qxkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsa60"]
 size = Vector2(13, 24)
@@ -156,6 +157,7 @@ animations = [{
 }]
 
 [node name="td_enemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_5qxkw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
@@ -170,7 +172,7 @@ debug_color = Color(0.992157, 0.0470588, 0.152941, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kts1s")
-frame_progress = 0.0113306
+frame_progress = 0.327993
 
 [node name="RayCast2DR" type="RayCast2D" parent="."]
 target_position = Vector2(-48, -24)
