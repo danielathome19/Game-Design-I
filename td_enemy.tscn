@@ -182,3 +182,5 @@ target_position = Vector2(-50, 0)
 
 [node name="RayCast2DL" type="RayCast2D" parent="."]
 target_position = Vector2(-48, 24)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
