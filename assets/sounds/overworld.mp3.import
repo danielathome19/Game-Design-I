@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/overworld.mp3-745aed1ae7c33a6284622f3d5c31be6
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
