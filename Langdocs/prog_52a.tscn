@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://1r8bi5gqr7k6"]
+
+[ext_resource type="LabelSettings" uid="uid://cjjbq7li4dbhd" path="res://Langdocs/big_label_38.tres" id="1_0cu2g"]
+[ext_resource type="Script" path="res://Langdocs/prog_52a.gd" id="1_nhwd8"]
+[ext_resource type="Theme" uid="uid://bku4trc545jag" path="res://big_font.tres" id="2_y302v"]
+
+[node name="Prog52a" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nhwd8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 39.0
+offset_right = 361.0
+offset_bottom = 104.0
+text = "Length:"
+label_settings = ExtResource("1_0cu2g")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 137.0
+offset_right = 365.0
+offset_bottom = 202.0
+text = "Width:"
+label_settings = ExtResource("1_0cu2g")
+horizontal_alignment = 2
+
+[node name="lblArea" type="Label" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 260.0
+offset_right = 1044.0
+offset_bottom = 357.0
+text = "Area:"
+label_settings = ExtResource("1_0cu2g")
+horizontal_alignment = 1
+
+[node name="lblPerim" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 386.0
+offset_right = 1045.0
+offset_bottom = 483.0
+text = "Perimeter:"
+label_settings = ExtResource("1_0cu2g")
+horizontal_alignment = 1
+
+[node name="txtLen" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 35.0
+offset_right = 928.0
+offset_bottom = 119.0
+theme = ExtResource("2_y302v")
+
+[node name="txtWid" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 131.0
+offset_right = 927.0
+offset_bottom = 215.0
+theme = ExtResource("2_y302v")
+
+[node name="btnCalc" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 526.0
+offset_right = 304.0
+offset_bottom = 644.0
+theme = ExtResource("2_y302v")
+text = "Calculate"
+
+[node name="btnClear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 527.0
+offset_right = 739.0
+offset_bottom = 645.0
+theme = ExtResource("2_y302v")
+text = "Clear"
+
+[node name="btnExit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 524.0
+offset_right = 1135.0
+offset_bottom = 642.0
+theme = ExtResource("2_y302v")
+text = "Exit"
+
+[connection signal="pressed" from="btnCalc" to="." method="_on_btn_calc_pressed"]
+[connection signal="pressed" from="btnClear" to="." method="_on_btn_clear_pressed"]
+[connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
