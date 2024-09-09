@@ -1,0 +1,104 @@
+[gd_scene load_steps=4 format=3 uid="uid://blviw4xj3g1by"]
+
+[ext_resource type="Script" path="res://Langdocs/prog_82a.gd" id="1_0iwuj"]
+[ext_resource type="LabelSettings" uid="uid://cjjbq7li4dbhd" path="res://Langdocs/big_label_38.tres" id="1_y2sdt"]
+[ext_resource type="Theme" uid="uid://bku4trc545jag" path="res://big_font.tres" id="2_kp1g1"]
+
+[node name="Prog82a" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0iwuj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -1.0
+offset_right = 338.0
+offset_bottom = 88.0
+text = "Speed Limit:"
+label_settings = ExtResource("1_y2sdt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 120.0
+offset_right = 339.0
+offset_bottom = 209.0
+text = "Vehicle Speed:"
+label_settings = ExtResource("1_y2sdt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 366.0
+offset_right = 334.0
+offset_bottom = 455.0
+text = "Fine:"
+label_settings = ExtResource("1_y2sdt")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="lblFine" type="Label" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 368.0
+offset_right = 712.0
+offset_bottom = 457.0
+text = "$"
+label_settings = ExtResource("1_y2sdt")
+vertical_alignment = 1
+
+[node name="txtLimit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 4.0
+offset_right = 740.0
+offset_bottom = 93.0
+theme = ExtResource("2_kp1g1")
+
+[node name="txtSpeed" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 129.0
+offset_right = 739.0
+offset_bottom = 218.0
+theme = ExtResource("2_kp1g1")
+
+[node name="btnCalc" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 536.0
+offset_right = 352.0
+offset_bottom = 643.0
+theme = ExtResource("2_kp1g1")
+text = "Calculate"
+
+[node name="btnClear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 403.0
+offset_top = 537.0
+offset_right = 752.0
+offset_bottom = 644.0
+theme = ExtResource("2_kp1g1")
+text = "Clear"
+
+[node name="btnExit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 539.0
+offset_right = 1147.0
+offset_bottom = 646.0
+theme = ExtResource("2_kp1g1")
+text = "Exit"
+
+[connection signal="pressed" from="btnCalc" to="." method="_on_btn_calc_pressed"]
+[connection signal="pressed" from="btnClear" to="." method="_on_btn_clear_pressed"]
+[connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
