@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjtsw6ms80cbg"]
+
+[ext_resource type="Script" path="res://Langdocs/lp_4_1.gd" id="1_ua58m"]
+[ext_resource type="LabelSettings" uid="uid://cjjbq7li4dbhd" path="res://Langdocs/big_label_38.tres" id="1_yveiw"]
+[ext_resource type="Theme" uid="uid://bku4trc545jag" path="res://big_font.tres" id="2_ov58f"]
+
+[node name="LP 4-1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ua58m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 45.0
+offset_right = 623.0
+offset_bottom = 118.0
+text = "Enter # of copies to be printed: "
+label_settings = ExtResource("1_yveiw")
+
+[node name="lblOut" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 136.0
+offset_right = 1118.0
+offset_bottom = 480.0
+text = "-"
+label_settings = ExtResource("1_yveiw")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 34.0
+offset_right = 1097.0
+offset_bottom = 114.0
+theme = ExtResource("2_ov58f")
+
+[node name="btnCalc" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 529.0
+offset_right = 258.0
+offset_bottom = 631.0
+theme = ExtResource("2_ov58f")
+text = "Calculate"
+
+[node name="btnClear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 528.0
+offset_right = 678.0
+offset_bottom = 630.0
+theme = ExtResource("2_ov58f")
+text = "Clear"
+
+[node name="btnExit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 526.0
+offset_right = 1138.0
+offset_bottom = 628.0
+theme = ExtResource("2_ov58f")
+text = "Exit"
+
+[connection signal="pressed" from="btnCalc" to="." method="_on_btn_calc_pressed"]
+[connection signal="pressed" from="btnClear" to="." method="_on_btn_clear_pressed"]
+[connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
