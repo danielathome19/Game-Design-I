@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciwopp2gq2521"]
+
+[ext_resource type="Script" path="res://plt_world_1.gd" id="1_3kjw3"]
+[ext_resource type="PackedScene" uid="uid://b5cee3hiq8q0p" path="res://plt_player.tscn" id="2_0v006"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dc6e"]
+size = Vector2(266, 14)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3xgpv"]
+
+[node name="plt_world1" type="Node2D"]
+script = ExtResource("1_3kjw3")
+
+[node name="plt_player" parent="." instance=ExtResource("2_0v006")]
+position = Vector2(211, 191)
+
+[node name="world" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world"]
+polygon = PackedVector2Array(74, -137, 46, 509, 131, 548, 250, 588, 309, 549, 328, 481, 376, 435, 455, 362, 589, 370, 601, 479, 699, 511, 776, 423, 917, 419, 883, 509, 1038, 570, 1163, 527, 1156, 443, 1250, 419, 1496, 441, 1609, 372, 1736, 374, 1703, 497, 1766, 598, 1889, 590, 1878, 518, 1977, 447, 2032, 368, 2181, 407, 2300, 483, 2367, 348, 2487, 284, 2590, 350, 2578, 465, 2740, 522, 2944, 479, 3013, 628, 3353, 597, 3499, -157, 3628, -200, 3553, 1273, -72, 1222, -53, -115)
+
+[node name="Polygon2D" type="Polygon2D" parent="world/CollisionPolygon2D"]
+
+[node name="startplatform" type="StaticBody2D" parent="."]
+position = Vector2(261, 255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="startplatform"]
+position = Vector2(-54, -28)
+shape = SubResource("RectangleShape2D_7dc6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="startplatform/CollisionShape2D"]
+scale = Vector2(264, 12)
+texture = SubResource("PlaceholderTexture2D_3xgpv")
