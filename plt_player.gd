@@ -47,6 +47,10 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.zoom += Vector2(1, 1)
 	if Input.is_action_just_pressed("zoom_cam_out"):
 		$Camera2D.zoom -= Vector2(1, 1)
+	if Input.is_action_just_pressed("pause"):
+		$Camera2D/pause_menu.show()
+		get_tree().paused = true
+		
 	move_and_slide()
 
 
