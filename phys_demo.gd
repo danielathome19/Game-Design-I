@@ -24,7 +24,7 @@ func _on_button_pressed() -> void:
 	for child in get_children():
 		if child is RigidBody2D:
 			var force = randi_range(50, 1000)
-			child.apply_central_force(Vector2(1,0) * force)
+			child.apply_central_impulse(Vector2(1,0) * force)
 			# Vector2.RIGHT
 
 func _on_button_2_pressed() -> void:
