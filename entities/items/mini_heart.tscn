@@ -48,7 +48,7 @@ script = ExtResource("1_kfxad")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxsor")
 autoplay = "default"
-frame_progress = 0.418669
+frame_progress = 0.298454
 
 [node name="Area2D" type="Area2D" parent="."]
 

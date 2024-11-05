@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtr4u627fv0om"]
+
+[ext_resource type="Script" path="res://entities/items/mini_coin.gd" id="1_cc7gc"]
+[ext_resource type="Texture2D" uid="uid://dbt60ovnsbb45" path="res://assets/sprites/zelda_like/objects.png" id="1_v0xjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhblu"]
+atlas = ExtResource("1_v0xjp")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hich"]
+atlas = ExtResource("1_v0xjp")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uq68"]
+atlas = ExtResource("1_v0xjp")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7upbu"]
+atlas = ExtResource("1_v0xjp")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pibs6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhblu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hich")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uq68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7upbu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x027m"]
+radius = 12.0
+
+[node name="mini_coin" type="Node2D"]
+script = ExtResource("1_cc7gc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pibs6")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x027m")
