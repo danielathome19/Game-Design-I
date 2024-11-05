@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cn0cuu22seg34"]
+[gd_scene load_steps=4 format=4 uid="uid://cn0cuu22seg34"]
 
 [ext_resource type="TileSet" uid="uid://ef4mwn6soyui" path="res://assets/tilesets/td_world_1.tres" id="1_g4y6e"]
 [ext_resource type="PackedScene" uid="uid://b4p82m8j8jbld" path="res://td_player.tscn" id="2_nhcv8"]
+[ext_resource type="PackedScene" uid="uid://dq8wuwe8qgw3n" path="res://entities/items/mini_heart.tscn" id="3_2fnuw"]
 
 [node name="td_world1" type="Node2D"]
 
@@ -15,3 +16,18 @@ tile_set = ExtResource("1_g4y6e")
 
 [node name="td_player" parent="." instance=ExtResource("2_nhcv8")]
 position = Vector2(-25, 104)
+
+[node name="mini_heart" parent="." instance=ExtResource("3_2fnuw")]
+position = Vector2(46, 34)
+
+[node name="mini_heart2" parent="." instance=ExtResource("3_2fnuw")]
+position = Vector2(-199, 91)
+
+[node name="mini_heart3" parent="." instance=ExtResource("3_2fnuw")]
+position = Vector2(-179, 99)
+
+[node name="mini_heart4" parent="." instance=ExtResource("3_2fnuw")]
+position = Vector2(-221, 151)
+
+[node name="mini_heart5" parent="." instance=ExtResource("3_2fnuw")]
+position = Vector2(-139, -55)
