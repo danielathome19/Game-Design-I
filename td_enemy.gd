@@ -69,8 +69,9 @@ func take_damage(dmg, attacker=null):
 			queue_free()
 		else:
 			if attacker != null:
+				var loc = attacker.global_position
 				#await recovered
-				turn_toward_player_location(attacker.global_position)
+				turn_toward_player_location(loc)
 	pass
 
 func _physics_process(delta: float) -> void:
