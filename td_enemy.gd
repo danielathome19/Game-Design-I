@@ -54,6 +54,7 @@ signal recovered
 var drops = ["drop_coin", "drop_heart"]
 var coin_scene = preload("res://entities/items/mini_coin.tscn")
 var heart_scene = preload("res://entities/items/mini_heart.tscn")
+var damage_shader = preload("res://assets/shaders/take_damage.tres")
 
 func vec2_offset():
 	return Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
@@ -92,13 +93,14 @@ func turn_toward_player_location(location: Vector2):
 	AI_STATE = closest_state
 
 func take_damage(dmg, attacker=null):
-	# TODO
 	if damage_lock == 0.0:
 		AI_STATE = STATES.DAMAGED
 		HEALTH -= dmg
 		damage_lock = 0.2
 		animation_lock = 0.2
-		# TODO: damage shader
+		var dmg_intensity = clamp(1.0-((HEALTH+0.01)/MAX_HEALTH), 0.1, 0.8)
+		$AnimatedSprite2D.material = damage_shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", dmg_intensity)
 		if HEALTH <= 0:
 			drop_items()
 			# TODO: play death sound
@@ -122,7 +124,7 @@ func _physics_process(delta: float) -> void:
 			raydir.rotated(deg_to_rad(+45)).normalized() * vision_distance
 	if animation_lock == 0.0:
 		if AI_STATE == STATES.DAMAGED:
-			# TODO: reset shader
+			$AnimatedSprite2D.material = null
 			AI_STATE = STATES.IDLE
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
