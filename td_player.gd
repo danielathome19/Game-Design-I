@@ -22,8 +22,13 @@ var charge_duration = 0.0
 
 var slash_scene = preload("res://entities/attacks/slash.tscn")
 var damage_shader = preload("res://assets/shaders/take_damage.tres")
+var attack_sound = preload("res://assets/sounds/slash.wav")
+# TODO: attack/preload sounds - death, hurt, minicoin/heart, charge_attack
+# aud_player.stream = whatever_sound
+# aud_player.play()
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+@onready var aud_player = $AudioStreamPlayer2D
 
 func get_direction_name():
 	return ["right", "down", "left", "up"][
@@ -41,6 +46,8 @@ func attack():
 	slash.position = attack_direction * 20.0
 	slash.rotation = Vector2().angle_to_point(-attack_direction)
 	add_child(slash)
+	aud_player.stream = attack_sound
+	aud_player.play()
 	animation_lock = 0.2
 	
 func charged_attack():
