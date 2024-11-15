@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cnlv1bsl3xkwd"]
+[gd_scene load_steps=9 format=4 uid="uid://cnlv1bsl3xkwd"]
 
 [ext_resource type="Texture2D" uid="uid://bfgcwehel3mlh" path="res://assets/sprites/zelda_like/cave.png" id="1_463ar"]
 [ext_resource type="PackedScene" uid="uid://b4p82m8j8jbld" path="res://td_player.tscn" id="2_k5235"]
 [ext_resource type="PackedScene" uid="uid://l4cjgh0n7062" path="res://td_enemy.tscn" id="3_0ktpo"]
-[ext_resource type="PackedScene" uid="uid://cipuvi3r58t5l" path="res://change_lvl.tscn" id="4_74fux"]
+[ext_resource type="Script" path="res://change_lvl.gd" id="4_dj1ji"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jvuw"]
 texture = ExtResource("1_463ar")
@@ -147,6 +147,11 @@ texture = ExtResource("1_463ar")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5jvuw")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vi864"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpxnx"]
+size = Vector2(47, 28)
+
 [node name="td_world2" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -154,7 +159,7 @@ tile_map_data = PackedByteArray("AAD//wYAAAAAAAEAAAAAAAYAAAAAAAEAAAABAAYAAAAAAAE
 tile_set = SubResource("TileSet_8jhgg")
 
 [node name="td_player" parent="." instance=ExtResource("2_k5235")]
-position = Vector2(8, 35)
+position = Vector2(7, 60)
 
 [node name="td_enemy" parent="." instance=ExtResource("3_0ktpo")]
 position = Vector2(-81, -23)
@@ -162,14 +167,19 @@ position = Vector2(-81, -23)
 [node name="td_enemy2" parent="." instance=ExtResource("3_0ktpo")]
 position = Vector2(48, -30)
 
-[node name="change_lvl" parent="." instance=ExtResource("4_74fux")]
+[node name="change_lvl" type="Area2D" parent="."]
 position = Vector2(13, 123)
+script = ExtResource("4_dj1ji")
 next_level = "td_world_1"
 
-[node name="CollisionShape2D" parent="change_lvl" index="0"]
-position = Vector2(-5, 5)
-
-[node name="Sprite2D" parent="change_lvl" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="change_lvl"]
 visible = false
+modulate = Color(0.321569, 0.717647, 0.721569, 1)
+scale = Vector2(48, 96)
+texture = SubResource("PlaceholderTexture2D_vi864")
 
-[editable path="change_lvl"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_lvl"]
+position = Vector2(-5.5, -13)
+shape = SubResource("RectangleShape2D_gpxnx")
+
+[connection signal="body_entered" from="change_lvl" to="change_lvl" method="_on_body_entered"]
